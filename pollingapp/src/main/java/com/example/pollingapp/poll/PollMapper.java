@@ -1,4 +1,4 @@
-package poll;
+package com.example.pollingapp.poll;
 
 import org.springframework.stereotype.Service;
 
@@ -17,5 +17,17 @@ public class PollMapper {
                 .options(poll.options())
                 .votes(new ArrayList<>())
                 .build();
+    }
+
+    public PollResponse fromPoll(Poll poll) {
+        if(poll == null){
+            return null;
+        }
+        return new PollResponse(
+                poll.getId(),
+                poll.getQuestion(),
+                poll.getOptions(),
+                poll.getVotes()
+        );
     }
 }

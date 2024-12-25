@@ -1,4 +1,4 @@
-package poll;
+package com.example.pollingapp.poll;
 
 import lombok.*;
 

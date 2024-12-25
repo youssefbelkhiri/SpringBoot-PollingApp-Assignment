@@ -8,6 +8,7 @@ import java.util.List;
 
 
 public record PollRequest(
+        String id,
         @NotEmpty(message = "question cannot be empty")
         String question,
         @NotEmpty(message = "Options list cannot be empty.")

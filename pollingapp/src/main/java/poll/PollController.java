@@ -3,10 +3,7 @@ package poll;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/polls")
@@ -17,5 +14,11 @@ public class PollController {
     @PostMapping
     public ResponseEntity<String> CreatePoll(@RequestBody @Valid PollRequest poll){
         return ResponseEntity.ok(pollService.CreatePoll(poll));
+    }
+
+    @PutMapping
+    public ResponseEntity<String> UpdatePoll(@RequestBody @Valid PollRequest poll){
+        pollService.UpdatePoll(poll);
+        return ResponseEntity.accepted().build();
     }
 }
